@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "GitHub Auto-Merge Detector",
+    "version": "1.0",
+    "description": "Displays a notice when a pull request is set to auto-merge.",
+    "permissions": [
+        "scripting"
+    ],
+    "host_permissions": [
+        "https://github.com/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://github.com/*/*/pull/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ]
+}
