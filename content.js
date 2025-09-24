@@ -84,7 +84,14 @@ function addBlinkingStyles() {
     document.head.appendChild(styleElement);
 }
 
+const prUrlPattern = /^https:\/\/github\.com\/[^/]+\/[^/]+\/pull\/\d+/;
+
 function checkAndAddNotice() {
+    // Trigger only on PR
+    if (!prUrlPattern.test(window.location.href)) {
+        return
+    }
+
     // First, ensure our blinking styles are on the page
     addBlinkingStyles();
 
